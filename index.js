@@ -22,7 +22,7 @@ const { conn } = require('./src/db.js');
 const {LoadingDb} = require('./src/DbLoad.js')
 const port = process.env.PORT || 3001
 // Syncing all the models at once.
-const load = conn.sync({ force: false }).then(() => {
+const load = conn.sync({ force: true }).then(() => {
   server.listen(port, async () => {
     await LoadingDb();
     // Linea comentada para que no cargue nuevamente la base de datos
