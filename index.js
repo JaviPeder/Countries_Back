@@ -20,13 +20,13 @@
 const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
 const {LoadingDb} = require('./src/DbLoad.js')
-const port = process.env.PORT || 3001
+const Port = process.env.PORT 
 // Syncing all the models at once.
-const load = conn.sync({ force: false }).then(() => {
-  server.listen(port, () => {
-    // LoadingDb();
+const load = conn.sync({ force: true }).then(() => {
+  server.listen(Port, () => {
+    LoadingDb();
     // Linea comentada para que no cargue nuevamente la base de datos
 
-    console.log('listening at 3001'); // eslint-disable-line no-console
+    console.log('listening at', Port); // eslint-disable-line no-console
   });
 });
