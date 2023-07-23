@@ -24,7 +24,7 @@ const Port = process.env.PORT
 // Syncing all the models at once.
 const load = conn.sync({ force: true }).then(() => {
   server.listen(Port, async () => {
-    //await LoadingDb();
+    await LoadingDb();
     // Linea comentada para que no cargue nuevamente la base de datos
 
     console.log('listening at', Port); // eslint-disable-line no-console
